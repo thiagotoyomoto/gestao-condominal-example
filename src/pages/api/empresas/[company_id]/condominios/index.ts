@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-import data from '@/data/condominiums.json';
+import condominiums from '@/data/condominiums';
 
 type Query = {
   company_id: string
@@ -16,9 +16,7 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data[]>
 ) {
-  const { condominiuns } = data
-
   const { company_id } = req.query as Query;
 
-  res.status(200).json(condominiuns.filter(condominium => condominium.company_id == company_id));
+  res.status(200).json(condominiums.filter(condominium => condominium.company_id == company_id));
 }
