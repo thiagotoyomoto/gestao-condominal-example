@@ -9,7 +9,7 @@ type Props = {
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-    const companies: Company[] = await (await fetch('http://localhost:3000/api/empresas')).json()
+    const companies: Company[] = await (await fetch('/api/empresas')).json()
     return {
         props: {
             companies

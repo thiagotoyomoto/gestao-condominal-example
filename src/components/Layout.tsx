@@ -11,10 +11,10 @@ export default function Layout({ children }: Props) {
     const [condominiums, setCondominiums] = useState<Condominium[]>([])
 
     useEffect(() => {
-        fetch('http://localhost:3000/api/empresas')
+        fetch('/api/empresas')
             .then(value => value.json() as unknown as Company[])
             .then(companies => { setCompanies(companies); return companies; })
-            .then(companies => fetch(`http://localhost:3000/api/empresas/${companies[0].id}/condominios`))
+            .then(companies => fetch(`/api/empresas/${companies[0].id}/condominios`))
             .then(value => value.json() as unknown as Condominium[])
             .then(condominiums => setCondominiums(condominiums))
             .catch(error => console.error);
@@ -25,7 +25,7 @@ export default function Layout({ children }: Props) {
 
     const onSelectCompany: ChangeEventHandler<HTMLSelectElement> = async (event) => {
         const id = event.target.selectedOptions[0].getAttribute('data-company-id')
-        const res = await fetch(`http://localhost:3000/api/empresas/${id}/condominios`)
+        const res = await fetch(`/api/empresas/${id}/condominios`)
         const value = await res.json() as unknown as Condominium[]
 
         setCondominiums(value)
