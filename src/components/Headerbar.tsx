@@ -112,7 +112,7 @@ export default function Headerbar() {
             <FontAwesomeIcon icon={faBuildingColumns} size='xl' color='#7f5ea5' />
           </a>
           <div className='dropdown-menu'>
-            <Link className='dropdown-item' href='/empresas/gOSVJJajL5eqSp7K'>Empresa</Link>
+            <Link className='dropdown-item' href='/empresas/gOSVJJajL5eqSp7K/informacoes'>Empresa</Link>
             <a className='dropdown-item' href='#'>Remessas e Retornos</a>
           </div>
         </li>
